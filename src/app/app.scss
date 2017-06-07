@@ -1,0 +1,91 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+@import "../popovers/cart.scss";
+
+.container{
+  background-color: color($colors, 'back') !important;
+}
+
+ion-title div{
+  color: white !important;
+}
+
+.centerLineDiv{
+  width: 20%;
+  border-top: 2px solid #bec0c1;
+  margin: 0px auto;
+  margin-top: 20px;
+}
+.centerLineBottomDiv{
+  width: 20%;
+  border-top: 2px solid #bec0c1;
+  margin: 0px auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+ion-slides{
+  height: auto;
+  margin: 30px 0px;
+}
+.col{
+  margin: auto;
+  text-align: center;
+}
+.desc{
+  font-style: italic;
+  color: gray;
+}
+.price{
+  color: #8f8f8f !important;
+  font-weight: bold !important;
+}
+.old-price{
+  color: #8f8f8f !important;
+  text-decoration: line-through;
+}
+.white{
+  color: white !important;
+}
+.red{
+  color: color($colors, 'danger') !important;
+}
+.black{
+  color: black !important;
+}
+.bold{
+  font-weight: bold;
+}
+.myGray{
+  color: color($colors, 'myGray');
+}
+.dropIcon{
+  display: block;
+  float: right;
+  margin-right: 0px;
+}
+.dropdown{
+  width: 100%;
+  background-color: color($colors, 'back');
+}
+.cat{
+  padding-bottom: 10px;
+}
+.prod-header{
+  background-color: color($colors, 'secondary');
+}

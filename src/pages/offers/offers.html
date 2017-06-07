@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-navbar color="danger">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title></ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="cartPopover($event)">
+                <ion-icon name="md-cart"></ion-icon>
+            </button>
+            <button ion-button icon-only (click)="openModal()" [disabled]="true">
+                <ion-icon name="md-pricetag"></ion-icon>
+            </button>
+        </ion-buttons>
+
+    </ion-navbar>
+    <ion-toolbar color="danger">
+        <ion-segment color="white" [(ngModel)]="targetType">
+            <ion-segment-button value="bestSellers" (ionSelect)="selectBestSellers()" ngSelected="selected">
+                Best Sellers
+            </ion-segment-button>
+            <ion-segment-button value="featured" (ionSelect)="selectFeatured()">
+                Featured
+            </ion-segment-button>
+            <ion-segment-button value="bestOffers" (ionSelect)="selectBestOffers()">
+                Best Offers
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="container">
+
+    <!--<ion-grid>
+        <ion-row>
+            <ion-col col-6 *ngFor="let p of products" [ngSwitch]="targetType">
+              <ion-card (click)="goToProductDetails()">
+                <ion-card-header class="prod-header">
+                  <img src="{{ p.images[0] }}" alt="image">
+                </ion-card-header>
+
+                <ion-card-content padding-vertical>
+                  <ion-row>
+                    <ion-col col-12 no-padding>
+                      <p align="left">{{ p.name }}</p>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col col-6 no-padding>
+                      <p align="left" class="price">{{ p.price }} DH</p>
+                    </ion-col>
+                    <ion-col col-6 no-padding>
+                      <p align="right" class="old-price">9300 DH</p>
+                    </ion-col>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>-->
+
+</ion-content>

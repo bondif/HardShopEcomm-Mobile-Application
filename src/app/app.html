@@ -1,0 +1,92 @@
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-searchbar
+        placeholder="Search Categories"
+        color="danger"
+        [(ngModel)]="searchTerm"
+        [showCancelButton]="shouldShowCancel"
+        (ionInput)="setFiltredCategories()"
+        (ionCancel)="onCancel($event)" >
+      </ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+
+    <ion-content>
+        <p padding color="danger" *ngIf="nothing">Nothing match your search query</p>
+        <ion-list *ngIf="filtredCategories.length">
+            <ion-item *ngFor="let c of filtredCategories">
+                <p>
+                    <button uppercase block color="myGray" ion-button clear (click)="goToCategory(c)">
+                        {{ c.nameCat }}
+                    </button>
+                </p>
+            </ion-item>
+        </ion-list>
+        <ion-list *ngIf="!filtredCategories.length">
+            <div *ngFor="let c of cats; let i=index">
+                <ion-item *ngIf="!c.idSupCat"
+                            text-wrap 
+                            (click)="toggleGroup(i)"
+                            [ngClass]="{active: isGroupShown(i)}" 
+                            [class]="isGroupShown(i) ? 'dropdown' : ''">
+                    <h3 text-uppercase [class]="isGroupShown(i) ? 'cat' : ''">
+                        {{ c.nameCat }}
+                    <ion-icon
+                        [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"
+                        class="dropIcon"
+                        [color]="isGroupShown(i) ? 'danger' : ''"
+                    ></ion-icon>
+                    </h3>
+                    <div *ngIf="isGroupShown(i)">
+                        <div *ngFor="let subC of cats; let i=index">
+                            <div *ngIf="subC.idSupCat == c.idCat">
+                                <p>
+                                    <button block color="myGray" ion-button clear (click)="goToCategory(subC)">
+                                        {{ subC.nameCat }}
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </div>            
+        </ion-list>
+    </ion-content>
+
+  <ion-footer>
+    <ion-list>
+      <button ion-button block clear (click)="goToLogin()">
+        <ion-item no-padding text-uppercase>
+          Login
+          <ion-icon color="danger" ios="ios-log-in" md="md-log-in" item-right></ion-icon>
+        </ion-item>
+      </button>
+
+      <button ion-button block clear (click)="goToSignUp()">
+        <ion-item no-padding text-uppercase>
+          Sign Up
+          <ion-icon color="danger" ios="ios-people" md="md-people" item-right></ion-icon>
+        </ion-item>
+      </button>
+
+      <!--<button ion-button block clear>
+        <ion-item no-padding text-uppercase>
+          Account
+          <ion-icon color="danger" ios="ios-contact" md="md-contact" item-right></ion-icon>
+        </ion-item>
+      </button>-->
+
+      <button ion-button block clear>
+        <ion-item no-padding text-uppercase>
+          About Us
+          <ion-icon color="danger" ios="ios-information-circle" md="md-information-circle" item-right></ion-icon>
+        </ion-item>
+      </button>
+    </ion-list>
+  </ion-footer>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

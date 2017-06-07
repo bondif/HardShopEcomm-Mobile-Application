@@ -1,0 +1,22 @@
+#banner{
+	padding: 10px;
+	background-color: white;
+	height: 220px;
+	margin-bottom: 20px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=17, Direction=0, Color=#000000)";/*IE 8*/
+	-moz-box-shadow: 0 8px 17px -7px rgba(0,0,0,0.3);/*FF 3.5+*/
+	-webkit-box-shadow: 0 8px 17px -7px rgba(0,0,0,0.3);/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+	box-shadow: 0 8px 17px -7px rgba(0,0,0,0.3);/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=17, Direction=135, Color=#000000); /*IE 5.5-7*/
+}
+#img-banner{
+	vertical-align: middle;
+	max-height: 200px;
+	width: auto;
+}
+.prod-header{
+	background-color: color($colors, 'secondary');
+}
+.card-md + ion-card {
+	margin-top: 10px;
+}

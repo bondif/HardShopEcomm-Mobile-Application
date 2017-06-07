@@ -1,0 +1,135 @@
+
+/* Cart PopOver */
+
+.popover-md {
+
+  .popover-viewport {
+    background-color: #f6846a;
+  }
+
+  .cartPopOver {
+    width: 100%;
+    padding-bottom: 10px;
+    background-color: #f6846a;
+    .mainPopoverDiv {
+      margin-top: 60px;
+    }
+
+    .toolbar {
+      position: fixed;
+      top: 0px;
+      background-color: #f6846a;
+      .toolbar-background {
+        background-color: transparent !important;
+        border-top-width: 0px;
+        border-bottom-width: 0px;
+      }
+    }
+
+    .itemsCard {
+      padding: 0px;
+      .avatarColumn {
+        padding-left: 20px;
+        .avatarColumnImg {
+          border-radius: 50%;
+        }
+      }
+
+      .centerText {
+        text-align: center;
+      }
+
+      .arrowButtons {
+        background-color: transparent;
+        color: #a6a6ad;
+        padding: 0;
+        margin: 0px;
+        height: auto;
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      .itemDetails {
+        padding: 5px 0px 0px 20px;
+        color: #a6a6ad;
+        .itemDetailsHeading {
+          font-weight: bold;
+        }
+        .itemPrice {
+          margin-top: 25px;
+        }
+      }
+    }
+
+    .totalAmount {
+      color: #ffffff;
+      text-align: center;
+      .totalAmountHeading {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .popover-content {
+    width: 100%;
+    max-height: 500px;
+    top: 0px !important;
+    left: 0px !important;
+    border-radius: 0px;
+  }
+}
+
+.popupClass {
+  .alert-wrapper {
+    width: 80%;
+    height: 35%;
+    max-width: 80%;
+    background-color: #88cb56;
+    color: #323c3f;
+    .alert-sub-title {
+      color: #323c3f;
+    }
+    .alert-button-group{
+      margin: 0px auto;
+      margin-top: 10%;
+      width: 30%;
+    }
+    .popupDiv {
+      width: 5%;
+      margin: 0px auto;
+      border-top: 2px solid #323c3f;
+    }
+    .alert-button {
+      border-top: 0px;
+      border-radius: 5px;
+    }
+
+    .popupDivText {
+      margin-top: 20%;
+      font-size: 1.2em;
+    }
+    .button-inner{
+      background-color: #ffffff;
+      color: #323c3f;
+      border-radius: 5px;
+      font-weight: 500;
+      margin: 0px auto;
+      font-size: 0.9em;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .popupClass {
+    .alert-button-group{
+      margin-top: 0% !important;
+    }
+    .popupDivText {
+      margin-top: 10% !important;
+      font-size: 1.2em !important;
+    }
+  }
+}/*
+.mainPopoverDiv ion-row:first-child{
+  margin-top: 15px;
+}*/

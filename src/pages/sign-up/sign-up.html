@@ -1,0 +1,73 @@
+<!--
+  Generated template for the SignUp page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="container" padding>
+
+  <form [formGroup]="signUp">
+
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Phone Number</ion-label>
+      <ion-input type="tel" formControlName="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Address</ion-label>
+      <ion-input type="text" formControlName="address"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label>City</ion-label>
+    <ion-select formControlName="city">
+      <ion-option value="marrakech">Marrakech</ion-option>
+      <ion-option value="casablanca">Casablanca</ion-option>
+      <ion-option value="rabat">Rabat</ion-option>
+      <ion-option value="agadir">Agadir</ion-option>
+      <ion-option value="essaouira">Essaouira</ion-option>
+      <ion-option value="ouarzazate">Ouarzazate</ion-option>
+      <ion-option value="fes">Fes</ion-option>
+      <ion-option value="tanger">Tanger</ion-option>
+      <ion-option value="lagouira">Lagouira</ion-option>
+    </ion-select>
+  </ion-item>
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <button ion-button color="danger" type="submit" block (click)="signUpForm()" [disabled]="!signUp.valid">Sign Up</button>
+
+  </form>
+
+  <p class="myGray" text-uppercase margin-vertical text-center>Or Sign up with</p>
+
+  <button icon-left ion-button color="facebook" type="submit" block>
+    <ion-icon name="logo-facebook"></ion-icon>
+    Sign Up with Facebook
+  </button>
+  <button icon-left ion-button color="google" type="submit" block>
+    <ion-icon name="logo-googleplus"></ion-icon>
+    Sign Up with Google+
+  </button>
+
+</ion-content>
