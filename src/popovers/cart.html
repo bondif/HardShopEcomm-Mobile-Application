@@ -12,57 +12,56 @@
     </ion-toolbar>
 
     <div class="mainPopoverDiv">
-        <ion-card *ngFor="let p of products;let i = index">
-            <ion-card-content class="itemsCard">
-                <ion-row>
-                    <ion-col col-3 class="avatarColumn">
-                        <ion-thumbnail item-left>
-                            <img src="assets/images/img_not_found.gif" class="avatarColumnImg">
-                        </ion-thumbnail>
-                    </ion-col>
-                    <ion-col col-6>
-                        <div class="itemDetails">
-                            <h2 class="itemDetailsHeading">Muffin Dress</h2>
+        <div no-padding  *ngIf="products.length">
+            <ion-card *ngFor="let p of products;let i = index">
+                <ion-card-content class="itemsCard">
+                    <ion-row>
+                        <ion-col col-3 class="avatarColumn">
+                            <ion-thumbnail item-left>
+                                <img src="http://localhost:8100/api/v1/products/icon/{{ p.icon }}" class="avatarColumnImg">
+                            </ion-thumbnail>
+                        </ion-col>
+                        <ion-col col-6>
+                            <div class="itemDetails">
+                                <h2 class="itemDetailsHeading">{{ p.title }}</h2>
 
-                            <div>Size : S</div>
-                            <div class="itemPrice">$ 25,00</div>
-                        </div>
-                    </ion-col>
-                    <ion-col col-3 class="centerText">
-                        <ion-row>
-                            <ion-col col-8>
-                                <div>
-                                    <button class="button arrowButtons" type="button"
-                                            style=" " (click)="increaseItem(i)">
-                                        <ion-icon ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon>
-                                    </button>
-                                </div>
-                                <div>2</div>
-                                <div>
-                                    <button class="button arrowButtons" type="button" (click)="decreaseItem(i)">
-                                        <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-                                    </button>
-                                </div>
-                            </ion-col>
-                            <ion-col col-4>
-                                <div>
-                                    <button class="button arrowButtons" type="button" (click)="removeItem(p)">
-                                        <ion-icon color="danger" class="button-large" ios="ios-trash" md="md-trash"></ion-icon>
-                                    </button>
-                                </div>
-                            </ion-col>
-                        </ion-row>
-                    </ion-col>
-                </ion-row>
-            </ion-card-content>
-        </ion-card>
-
-        <!--*ngIf="products.length"--><div class="totalAmount">
-            <h1 class="totalAmountHeading">$ 327,00</h1>
+                                <div class="itemPrice">{{ p.newPrice }} DH</div>
+                            </div>
+                        </ion-col>
+                        <ion-col col-3 class="centerText">
+                            <ion-row>
+                                <ion-col col-8>
+                                    <div>
+                                        <button class="button arrowButtons" type="button" (click)="increaseItem(i)">
+                                            <ion-icon ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon>
+                                        </button>
+                                    </div>
+                                    <div>2</div>
+                                    <div>
+                                        <button class="button arrowButtons" type="button" (click)="decreaseItem(i)">
+                                            <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+                                        </button>
+                                    </div>
+                                </ion-col>
+                                <ion-col col-4>
+                                    <div>
+                                        <button class="button arrowButtons" type="button" (click)="removeItem(p)">
+                                            <ion-icon color="danger" class="button-large" ios="ios-trash" md="md-trash"></ion-icon>
+                                        </button>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <!--*ngIf="products.length"--><div class="totalAmount" *ngIf="products.length">
+            <h1 class="totalAmountHeading">{{ total }} DH</h1>
             <button (click)="goToCheckout()" ion-button color="someGray" text-uppercase>Proceed to Checkout</button>
         </div>
 
-        <!--*ngIf="!products.length"--><div>
+        <!--*ngIf="!products.length"--><div *ngIf="!products.length">
             <h3 class="white" align="center">Your cart is empty</h3>
         </div>
 

@@ -38,10 +38,10 @@
           <p align="left">{{ product.title }}</p>
         </ion-col>
         <ion-col col-3 no-padding>
-          <p class="price">{{ product.price }} DH</p>
+          <p class="price">{{ product.newPrice }} DH</p>
         </ion-col>
         <ion-col col-3 no-padding>
-          <p class="old-price">{{ product.newPrice }} DH</p>
+          <p class="old-price">{{ product.price }} DH</p>
         </ion-col>
       </ion-row>
     </ion-card-content>
@@ -64,7 +64,7 @@
   <ion-grid no-padding>
     <ion-row>
       <ion-col col-6  no-padding>
-        <button ion-button full color="danger" (click)="addToCart(product.idProd, 5)">Add to cart</button>
+        <button ion-button full color="danger" (click)="addToCart(product.idProd, 2)">Add to cart</button>
       </ion-col>
       <ion-col col-6 no-padding (click)="goToCheckout()">
         <button ion-button full color="danger">Buy now</button>
@@ -74,4 +74,3 @@
 
 
 </ion-footer>
-<script>console.log(product)</script>

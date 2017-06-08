@@ -56,11 +56,11 @@ export class Data {
   getProductById(id){
     console.log("by id from data provider " + id);
     let index = -1;
-    for(let i=0; i<this.products.length; i++){
-      if(this.products[i].id === id)
-        index = i;
+    for(let p of this.products){
+      if(p.idProd == id)
+        return p;
     }
-    return this.products[index];
+    return null;
   }
 
   getProductByCat(id){

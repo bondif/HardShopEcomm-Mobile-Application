@@ -6,15 +6,9 @@ import 'rxjs/add/operator/map';
 //providers
 import {Data} from "./data";
 
-/*
-  Generated class for the CartProvider provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class CartProvider {
-  static nbItems = 0;
+  prodsInCart = [];
 
   constructor(
       public http: Http,
@@ -24,20 +18,17 @@ export class CartProvider {
     console.log('Hello CartProvider Provider');
   }
 
-  addItem(id, qte){
-    CartProvider.nbItems++;
-    console.log(CartProvider.nbItems);
-    console.log(id + " " + qte);
-    //this.storage.clear();
-    this.storage.set(CartProvider.nbItems.toString(),{
+  addItem(id, qty){
+    console.log(id + " " + qty + " cart provider");
+    this.prodsInCart.push({
       id: id,
-      qte: qte
+      qty: qty
     });
   }
 
   getItems(){
     let items=[];
-    for(let i=1; i<=CartProvider.nbItems; i++){
+    for(let i=1; i<=this.prodsInCart.length; i++){
       this.storage.get(i.toString()).then((val) => {
         items.push(val);
       });
@@ -47,7 +38,10 @@ export class CartProvider {
   }
 
   removeItem(id){
-    CartProvider.nbItems--;
+    let index = -1;
+    for(let i=0; i<this.prodsInCart.length; i++){
+      index = this.prodsInCart.indexOf(id);
+    }
   }
 
 }

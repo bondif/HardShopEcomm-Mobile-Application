@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, PopoverController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, PopoverController, NavParams, ToastController } from 'ionic-angular';
 
 //pages
 import { Checkout } from '../checkout/checkout';
@@ -29,16 +29,26 @@ export class ProductDetails {
       public navParams: NavParams,
       public popoverCtrl: PopoverController,
       public cartProvider: CartProvider,
-      public data: Data
+      public data: Data,
+      public toastCtrl: ToastController
   ) {
     this.product = this.navParams.get('product');
     this.characteristics = this.product.characteristics.split(';');
     this.characteristics.pop();
     console.log(this.characteristics);
   }
+  toast = this.toastCtrl.create({
+      message: 'Product was added successfully',
+      duration: 2000,
+      position: 'middle',
+      closeButtonText: 'Close'
+    }
+  ); 
 
-  addToCart(id, qte){
-    this.cartProvider.addItem(id, qte);
+  addToCart(id, qty){
+    this.cartProvider.addItem(id, qty);
+    this.toast.present();
+    console.log(id + " " + qty);
   }
 
   goToCheckout(){
