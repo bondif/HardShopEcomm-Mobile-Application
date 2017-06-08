@@ -5,6 +5,8 @@ import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http';
 
+import { Product } from '../components/product/product';
+
 // Pages
 import { HomePage } from '../pages/home/home';
 import { Cart } from '../popovers/cart';
@@ -50,7 +52,8 @@ export function provideStorage() {
     SignUp,
     Login,
     NoInternet,
-    Offers
+    Offers,
+    Product
   ],
   imports: [
     BrowserModule,

@@ -42,54 +42,14 @@
 
   <ion-row *ngIf="filtredProducts.length">
     <ion-col col-6 *ngFor="let p of filtredProducts">
-      <ion-card (click)="goToProductDetails(p)">
-        <ion-card-header class="prod-header">
-          <img src="assets/images/MACBOOKPRO.png" alt="image">
-        </ion-card-header>
-
-        <ion-card-content padding-vertical>
-          <ion-row>
-            <ion-col col-12 no-padding>
-              <p align="left">{{ p.title }}</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-6 no-padding>
-              <p align="left" class="price">{{ p.newPrice}} DH</p>
-            </ion-col>
-            <ion-col col-6 no-padding>
-              <p align="right" class="old-price">{{ p.price }} DH</p>
-            </ion-col>
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
+      <product [product]="p"></product>
     </ion-col>
   </ion-row>
 
   <div *ngIf="!filtredProducts.length">
     <ion-row>
         <ion-col col-6 *ngFor="let p of products">
-          <ion-card (click)="goToProductDetails(p)">
-            <ion-card-header class="prod-header">
-              <img src="assets/images/MACBOOKPRO.png" alt="image">
-            </ion-card-header>
-
-            <ion-card-content padding-vertical>
-              <ion-row>
-                <ion-col col-12 no-padding>
-                  <p align="left">{{ p.title }}</p>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col col-6 no-padding>
-                  <p align="left" class="price">{{ p.newPrice }} DH</p>
-                </ion-col>
-                <ion-col col-6 no-padding>
-                  <p align="right" class="old-price">{{ p.price }} DH</p>
-                </ion-col>
-              </ion-row>
-            </ion-card-content>
-          </ion-card>
+          <product [product]="p"></product>
         </ion-col>
     </ion-row>
   </div>

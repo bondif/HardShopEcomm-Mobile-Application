@@ -24,14 +24,9 @@
     <ion-card-header no-padding class="prod-header">
       <ion-slides pager loop autoplay="4000">
 
-        <ion-slide>
-          <img margin-bottom src="assets/images/MACBOOKPRO.png" alt="image">
-        </ion-slide>
-        <ion-slide>
-          <img margin-bottom src="assets/images/MACBOOKPRO.png" alt="image">
-        </ion-slide>
-        <ion-slide>
-          <img margin-bottom src="assets/images/MACBOOKPRO.png" alt="image">
+        <ion-slide *ngFor="let img of product.images">
+          <img width="200" (load)="loaded = true" [ngClass]="{'img-loaded':loaded}" [hidden]="!loaded" style="margin: 30px auto;margin-top: 0px;" src="http://localhost:8100/api/v1/products/image/{{ img.image }}" alt="image" />
+          <ion-spinner *ngIf="!loaded" [ngClass]="{'center':true}"></ion-spinner>
         </ion-slide>
 
       </ion-slides>

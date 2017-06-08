@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { PopoverController, NavController } from 'ionic-angular';
+import { PopoverController, NavController, LoadingController } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
+
+//import { Product } from '../../components/product/product';
 
 //pages
 import { ProductDetails } from '../product-details/product-details';
@@ -18,7 +20,7 @@ declare var cordova: any;
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
 export class HomePage {
   nothing:boolean = false;
@@ -31,11 +33,17 @@ export class HomePage {
     public data: Data,
     public helpers: Helpers,
     public network: Network,
-    public file: File
+    public file: File,
+    public loadingCtrl: LoadingController
   ) {
+     let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
     this.data.getProducts()
     .then(prods => {
       this.products = prods;
+      loading.dismiss();
     });
   }
 

@@ -46,8 +46,10 @@ export class Category {
       this.products = this.data.getBestOffers();
   }
 
-  goToProductDetails(){
-      this.navCtrl.push(ProductDetails);
+  goToProductDetails(p){
+      this.navCtrl.push(ProductDetails, {
+          'product' : p
+      });
   }
 
   //this.selectBestSellers();

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, MenuController, Nav } from 'ionic-angular';
+import { Platform, MenuController, Nav, LoadingController } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
 import { SQLite } from '@ionic-native/sqlite';
 
@@ -38,7 +38,8 @@ export class MyApp {
     public data: Data,
     public helpers: Helpers,
     public network: Network,
-    public sqlite: SQLite
+    public sqlite: SQLite,
+    public loadingCtrl: LoadingController
     ) {
         this.initializeApp();
 
@@ -47,10 +48,14 @@ export class MyApp {
             { title: 'Home', component: HomePage },
             { title: 'Category', component: Category}
         ];
-
+        let loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+        loading.present();
         this.data.getCategories()
             .then(cats => {
                 this.cats = cats;
+                loading.dismiss();
         });
     }
 

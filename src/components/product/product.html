@@ -1,0 +1,21 @@
+<ion-card (click)="goToProductDetails(product)">
+  <ion-card-header class="prod-header">
+    <img class="thumbnail" src="http://localhost:8100/api/v1/products/image/{{ product.thumbnail }}" alt="image">
+  </ion-card-header>
+
+  <ion-card-content padding-vertical>
+    <ion-row>
+      <ion-col col-12 no-padding>
+        <p align="left">{{ product.title }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 no-padding>
+        <p align="left" class="price">{{ product.newPrice}} DH</p>
+      </ion-col>
+      <ion-col col-6 no-padding>
+        <p align="right" class="old-price">{{ product.price }} DH</p>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
