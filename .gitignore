@@ -7,6 +7,9 @@
 *.tmp
 *.tmp.*
 log.txt
+my-release-key.keystore
+zipalign.exe
+HardShop.apk
 *.sublime-project
 *.sublime-workspace
 .vscode/

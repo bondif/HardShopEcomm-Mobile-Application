@@ -25,7 +25,7 @@
                             <div class="itemDetails">
                                 <h2 class="itemDetailsHeading">{{ p.title }}</h2>
 
-                                <div class="itemPrice">{{ p.newPrice }} DH</div>
+                                <div class="itemPrice">{{ p.newPrice | number : '1.2-2'}} DH</div>
                             </div>
                         </ion-col>
                         <ion-col col-3 class="centerText">
@@ -45,7 +45,7 @@
                                 </ion-col>
                                 <ion-col col-4>
                                     <div>
-                                        <button class="button arrowButtons" type="button" (click)="removeItem(p)">
+                                        <button class="button arrowButtons" type="button" (click)="removeItem(i)">
                                             <ion-icon color="danger" class="button-large" ios="ios-trash" md="md-trash"></ion-icon>
                                         </button>
                                     </div>

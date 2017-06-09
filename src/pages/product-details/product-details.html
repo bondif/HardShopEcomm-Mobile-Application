@@ -47,6 +47,14 @@
     </ion-card-content>
   </ion-card>
 
+   <div class="quantity" style="padding-bottom: 30px; padding-left: 10px">
+    <input type="number" min="1" step="1" value="1" [(ngModel)]="qty">
+    <div class="quantity-nav">
+      <div class="quantity-button quantity-up" (click)="upQty()">+</div>
+      <div class="quantity-button quantity-down" (click)="downQty()">-</div>
+    </div>
+  </div>
+
   <p padding class="inStock" *ngIf="product.nbInStock">In Stock</p>
   <p padding class="outOfStock" *ngIf="!product.nbInStock">Out Of Stock</p>
 
@@ -63,7 +71,7 @@
 <ion-footer height="100">
   <ion-grid no-padding>
     <ion-row>
-      <ion-col col-6  no-padding>
+      <ion-col col-6  no-padding><!-- -->
         <button ion-button full color="danger" (click)="addToCart(product.idProd, 2)">Add to cart</button>
       </ion-col>
       <ion-col col-6 no-padding (click)="goToCheckout()">

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
@@ -15,17 +15,22 @@ import { File } from '@ionic-native/file';
 
 @Injectable()
 export class Data {
-
   api: string = 'http://127.0.0.1:8000/api/v1/';
+  PRE_LIVE_BASE = this.api;
   products;
   categories;
   loggedIn:boolean = false;
   token:string;
-
+  private headers = new Headers({
+    'Access-Control-Allow-Origin': 'http://localhost:8100',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
+    'Access-Control-Allow-Credentials': true
+  });
   constructor(
     public http: Http,
     private transfer: Transfer,
-    private file: File
+    private file: File,
   ) {
     console.log('Hello Data Provider');
   }
@@ -88,7 +93,7 @@ export class Data {
 
   postLogin(data:JSON){
     return new Promise(resolve =>
-        this.http.post(this.api + "users/login", data.parse, 'Access-Control-Allow-Origin *')
+        this.http.post(this.api + "users/login", data.stringify, {headers: this.headers})
           .map(res => res.json())
           .subscribe(answer => {
             this.loggedIn = true;

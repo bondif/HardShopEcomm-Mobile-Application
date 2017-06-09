@@ -24,6 +24,15 @@ import {Data} from "../../providers/data";
 export class ProductDetails {
   product;
   characteristics = [];
+  qty:number = 1;
+ 
+  upQty(){
+    this.qty += 1;
+  }
+  downQty(){
+    if(this.qty > 1)
+      this.qty -= 1;
+  }
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
@@ -43,7 +52,7 @@ export class ProductDetails {
       position: 'middle',
       closeButtonText: 'Close'
     }
-  ); 
+  );
 
   addToCart(id, qty){
     this.cartProvider.addItem(id, qty);
@@ -71,5 +80,7 @@ export class ProductDetails {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductDetails');
   }
+
+  
 
 }

@@ -13,7 +13,7 @@ import {Data} from "../providers/data";
 export class Cart {
     products= [];
     idsQtis;
-    total= 0;
+    total:number= 0;
     constructor(
         public viewCtrl: ViewController,
         public navCtrl: NavController,
@@ -24,12 +24,24 @@ export class Cart {
         if(this.idsQtis.length){
             for(let i=0; i<this.idsQtis.length; i++){
                 this.products.push(this.data.getProductById(this.idsQtis[i].id));
-                this.total += this.products[i].newPrice as number;
+                this.total += this.products[i].newPrice - 0 ;
             }
         } else {
             console.log('items is empty');
         }
         console.log(this.products);
+    }
+
+    increaseItem(i){
+            
+    }
+
+    decreaseItem(i){
+
+    }
+
+    removeItem(i){
+
     }
 
     close(){
