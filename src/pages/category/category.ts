@@ -30,21 +30,7 @@ export class Category {
       });
   }
 
-  targetType = 'bestSellers';
-
   target = this.params.get('target');
-
-  selectBestSellers(){
-      this.products = this.data.getBestSellers();
-  }
-
-  selectFeatured(){
-      this.products = this.data.getFeatured();
-  }
-
-  selectBestOffers(){
-      this.products = this.data.getBestOffers();
-  }
 
   goToProductDetails(p){
       this.navCtrl.push(ProductDetails, {

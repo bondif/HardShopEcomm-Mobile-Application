@@ -110,6 +110,19 @@ export class Data {
       );
   }
 
+  postSignUp(data){
+    console.log(data);
+    return new Promise(resolve =>
+        this.http.post(this.api + "users/signUp", data, {headers: this.headers})
+          .map(res => res.json())
+          .subscribe(answer => {
+            this.loggedIn = true;
+            this.token = answer.token;
+            resolve(answer);
+          })
+      );
+  }
+
   getBestProduct(){
     if(this.bestProduct){
       return Promise.resolve(this.bestProduct);
@@ -125,14 +138,44 @@ export class Data {
   }
 
   getBestSellers(){
-    return this.products;
+    if(this.bestSellers){
+      return Promise.resolve(this.bestSellers);
+    }
+    return new Promise(resolve =>
+      this.http.get(this.api + "products/bestSellers")
+        .map(res => res.json())
+        .subscribe(data => {
+          this.bestSellers = data;
+          resolve(this.bestSellers);
+        })
+    );
   }
 
   getFeatured(){
-    return this.products;
+    if(this.featured){
+      return Promise.resolve(this.featured);
+    }
+    return new Promise(resolve =>
+      this.http.get(this.api + "products/featured")
+        .map(res => res.json())
+        .subscribe(data => {
+          this.featured = data;
+          resolve(this.featured);
+        })
+    );
   }
   getBestOffers(){
-    return this.products;
+    if(this.bestOffers){
+      return Promise.resolve(this.bestOffers);
+    }
+    return new Promise(resolve =>
+      this.http.get(this.api + "products/bestOffers")
+        .map(res => res.json())
+        .subscribe(data => {
+          this.bestOffers = data;
+          resolve(this.bestOffers);
+        })
+    );
   }
 
 }
