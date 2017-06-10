@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http';
+//import { Md5 } from 'ts-md5/dist/md5'
 
 import { Product } from '../components/product/product';
 

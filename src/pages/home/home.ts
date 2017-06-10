@@ -27,6 +27,7 @@ export class HomePage {
   searchTerm:string = '';
   filtredProducts = [];
   products = [];
+  bestProduct;
   constructor(
     public popoverCtrl: PopoverController,
     public navCtrl: NavController,
@@ -43,8 +44,13 @@ export class HomePage {
     this.data.getProducts()
     .then(prods => {
       this.products = prods;
-      loading.dismiss();
     });
+    this.data.getBestProduct()
+      .then(prod => {
+        this.bestProduct = prod
+        console.log(prod[0]);
+        loading.dismiss();
+      })
   }
 
   ionViewDidLoad(){

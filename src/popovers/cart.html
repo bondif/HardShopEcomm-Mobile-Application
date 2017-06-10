@@ -13,19 +13,19 @@
 
     <div class="mainPopoverDiv">
         <div no-padding  *ngIf="products.length">
-            <ion-card *ngFor="let p of products;let i = index">
+            <ion-card *ngFor="let p of products; let i = index">
                 <ion-card-content class="itemsCard">
                     <ion-row>
                         <ion-col col-3 class="avatarColumn">
                             <ion-thumbnail item-left>
-                                <img src="http://localhost:8100/api/v1/products/icon/{{ p.icon }}" class="avatarColumnImg">
+                                <img src="http://localhost:8000/api/v1/products/icon/{{ p.icon }}" class="avatarColumnImg">
                             </ion-thumbnail>
                         </ion-col>
                         <ion-col col-6>
                             <div class="itemDetails">
                                 <h2 class="itemDetailsHeading">{{ p.title }}</h2>
 
-                                <div class="itemPrice">{{ p.newPrice | number : '1.2-2'}} DH</div>
+                                <div class="itemPrice">{{ p.newPrice }} DH</div>
                             </div>
                         </ion-col>
                         <ion-col col-3 class="centerText">
@@ -36,7 +36,8 @@
                                             <ion-icon ios="ios-arrow-dropup" md="md-arrow-dropup"></ion-icon>
                                         </button>
                                     </div>
-                                    <div>2</div>
+                                    <div>{{ p.qty }}</div>
+                                    <script>console.log(q.qty)</script>
                                     <div>
                                         <button class="button arrowButtons" type="button" (click)="decreaseItem(i)">
                                             <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>

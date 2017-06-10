@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+//import { Md5 } from 'ts-md5/dist/md5'
 
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 import { File } from '@ionic-native/file';
@@ -18,11 +19,15 @@ export class Data {
   api: string = 'http://127.0.0.1:8000/api/v1/';
   PRE_LIVE_BASE = this.api;
   products;
+  bestProduct;
+  bestOffers;
+  bestSellers;
+  featured;
   categories;
   loggedIn:boolean = false;
   token:string;
   private headers = new Headers({
-    'Access-Control-Allow-Origin': 'http://localhost:8100',
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
     'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
     'Access-Control-Allow-Credentials': true
@@ -91,9 +96,11 @@ export class Data {
     );
   }
 
-  postLogin(data:JSON){
+  postLogin(data){
+      console.log(data);
     return new Promise(resolve =>
-        this.http.post(this.api + "users/login", data.stringify, {headers: this.headers})
+        this.http.post(this.api + "users/login", data, {headers: this.headers})
+        
           .map(res => res.json())
           .subscribe(answer => {
             this.loggedIn = true;
@@ -101,6 +108,20 @@ export class Data {
             resolve(answer);
           })
       );
+  }
+
+  getBestProduct(){
+    if(this.bestProduct){
+      return Promise.resolve(this.bestProduct);
+    }
+    return new Promise(resolve =>
+      this.http.get(this.api + "products/bestProduct")
+        .map(res => res.json())
+        .subscribe(data => {
+          this.bestProduct = data;
+          resolve(this.bestProduct);
+        })
+    );
   }
 
   getBestSellers(){

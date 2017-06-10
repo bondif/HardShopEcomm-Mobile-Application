@@ -17,14 +17,13 @@
 
 <ion-content class="container">
   <ion-grid id="banner">
-    <ion-row >
+    <ion-row *ngFor="let p of bestProduct">
       <ion-col col-6>
-        <img id="img-banner" src="assets/images/MACBOOKPRO.png" />
+        <img id="img-banner" src="http://localhost:8000/api/v1/products/image/{{ p.thumbnail }}" />
       </ion-col>
       <ion-col col-6>
-        <h4 text-uppercase>New Apple | Mac</h4>
-        <span>with OS X Yosemite</span>
-        <p class="desc">Every bit as powerfull as it looks</p>
+        <h4 text-uppercase>{{ p.title }}</h4>
+        <p class="desc">{{ p.description }}</p>
         <button small ion-button color="danger" >Prebook now</button>
       </ion-col>
     </ion-row>

@@ -20,10 +20,12 @@ export class CartProvider {
 
   addItem(id, qty){
     console.log(id + " " + qty + " cart provider");
+    
     this.prodsInCart.push({
       id: id,
       qty: qty
     });
+    
   }
 
   getItems(){

@@ -46,17 +46,17 @@ export class ProductDetails {
     this.characteristics.pop();
     console.log(this.characteristics);
   }
-  toast = this.toastCtrl.create({
+  /*toast = this.toastCtrl.create({
       message: 'Product was added successfully',
       duration: 2000,
       position: 'middle',
       closeButtonText: 'Close'
     }
-  );
+  );*/
 
   addToCart(id, qty){
     this.cartProvider.addItem(id, qty);
-    this.toast.present();
+    //this.toast.present();
     console.log(id + " " + qty);
   }
 

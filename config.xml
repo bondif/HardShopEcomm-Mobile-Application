@@ -2,7 +2,7 @@
 <widget id="com.ionicframework.hardshop546787" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Hard Shop</name>
     <description>Hardware Ecommerce Shop</description>
-    <author email="boukhlifmohamed13@gmail.com" href="http://facebook.com/mohamed.boukhlif.13">Ionic Framework Team</author>
+    <author email="boukhlifmohamed13@gmail.com" href="http://facebook.com/mohamed.boukhlif.13">BOUKHLIF Mohamed</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -23,21 +23,21 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <!--
-            ldpi    : 36x36 px
-            mdpi    : 48x48 px
-            hdpi    : 72x72 px
-            xhdpi   : 96x96 px
-            xxhdpi  : 144x144 px
-            xxxhdpi : 192x192 px
+            ldpi    : 36x36 px		240x320px
+            mdpi    : 48x48 px		320x480px
+            hdpi    : 72x72 px		480x800px
+            xhdpi   : 96x96 px		720x1280px
+            xxhdpi  : 144x144 px	960x1600px
+            xxxhdpi : 192x192 px	1280x1920px
     -->
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
-        <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
-        <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
-        <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png" />
-        <icon density="xxhdpi" src="resources/android/icon/drawable-xxhdpi-icon.png" />
-        <icon density="xxxhdpi" src="resources/android/icon/drawable-xxxhdpi-icon.png" />
+        <icon density="ldpi" src="resources/android/icon/LogoHardShop_36.png" />
+        <icon density="mdpi" src="resources/android/icon/LogoHardShop_48.png" />
+        <icon density="hdpi" src="resources/android/icon/LogoHardShop_72.png" />
+        <icon density="xhdpi" src="resources/android/icon/LogoHardShop_96.png" />
+        <icon density="xxhdpi" src="resources/android/icon/LogoHardShop_144.png" />
+        <icon density="xxxhdpi" src="resources/android/icon/LogoHardShop_192.png" />
         <splash density="land-ldpi" src="resources/android/splash/drawable-land-ldpi-screen.png" />
         <splash density="land-mdpi" src="resources/android/splash/drawable-land-mdpi-screen.png" />
         <splash density="land-hdpi" src="resources/android/splash/drawable-land-hdpi-screen.png" />
