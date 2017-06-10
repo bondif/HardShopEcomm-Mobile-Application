@@ -18,6 +18,7 @@ import { SignUp } from '../pages/sign-up/sign-up';
 import { Login } from '../pages/login/login';
 import { NoInternet } from '../pages/no-internet/no-internet';
 import { Offers } from '../pages/offers/offers';
+import { About } from '../pages/about/about';
 
 //Providers
 import { CartProvider } from '../providers/cart-provider';
@@ -54,7 +55,8 @@ export function provideStorage() {
     Login,
     NoInternet,
     Offers,
-    Product
+    Product,
+    About
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ export function provideStorage() {
     SignUp,
     Login,
     NoInternet,
-    Offers
+    Offers,
+    About
   ],
   providers: [
     StatusBar,

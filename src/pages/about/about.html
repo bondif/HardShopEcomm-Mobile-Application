@@ -1,0 +1,64 @@
+<!--
+  Generated template for the About page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>About</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+      <img style="width: 150px; margin: auto" src="assets/images/forgithub.png"/>
+      <ion-card-content>
+        <ion-card-title style="text-align: center">
+          <i style="font-size: 16px;">Developped By</i>
+          <h1>BOUKHLIF Mohamed</h1 >
+        </ion-card-title>
+        <ion-row>
+          <ion-col col-4>
+            <button color="facebook" ion-button icon-only clear (click)="goToFacebook(1)">
+              <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <button color="google" ion-button icon-only clear (click)="goToGoogle(1)">
+              <ion-icon ios="logo-googleplus" md="logo-googleplus"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <button color="black" ion-button icon-only clear (click)="goToGithub(1)">
+              <ion-icon ios="logo-github" md="logo-github"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+  </ion-card>
+  <ion-card>
+      <img style="width: 150px; margin: auto" src="img/nin-live.png"/>
+      <ion-card-content>
+        <ion-card-title style="text-align: center">
+          <i style="font-size: 16px;">Designed By</i>
+          <h1 >EL BASSRI Chourouk</h1 >
+        </ion-card-title>
+        <ion-row>
+          <ion-col col-6>
+            <button color="facebook" clear ion-button icon-only (click)="goToFacebook(2)">
+              <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-6>
+            <button color="google" clear ion-button icon-only (click)="goToGoogle(2)">
+              <ion-icon ios="logo-googleplus" md="logo-googleplus"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+  </ion-card>
+  <p style="text-align: center">&copy; Hard Shop 2017</p>
+</ion-content>

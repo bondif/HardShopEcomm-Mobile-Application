@@ -8,6 +8,8 @@ import { HomePage } from '../pages/home/home';
 import { Category } from '../pages/category/category';
 import { SignUp } from '../pages/sign-up/sign-up';
 import { Login } from '../pages/login/login';
+import { About } from '../pages/about/about';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -113,6 +115,17 @@ export class MyApp {
     goToLogin(){
     this.nav.push(Login);
     this.menu.close();
+    }
+
+    goToAbout(){
+        this.nav.push(About);
+        this.menu.close();
+    }
+
+    logout(){
+        this.data.loggedIn = false;
+        this.nav.push(Login);
+        this.menu.close();
     }
 
     setFiltredCategories() {

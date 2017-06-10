@@ -24,7 +24,7 @@
       <ion-col col-6>
         <h4 text-uppercase>{{ p.title }}</h4>
         <p class="desc">{{ p.description }}</p>
-        <button small ion-button color="danger" >Prebook now</button>
+        <button small ion-button color="danger" (click)="goToCheckout()">Prebook now</button>
       </ion-col>
     </ion-row>
   </ion-grid>

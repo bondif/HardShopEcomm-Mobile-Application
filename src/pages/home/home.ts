@@ -8,6 +8,7 @@ import { Network } from '@ionic-native/network';
 import { ProductDetails } from '../product-details/product-details';
 import { Cart } from '../../popovers/cart';
 import { Offers } from '../offers/offers';
+import { Checkout } from '../checkout/checkout';
 
 //providers
 import {Data} from "../../providers/data";
@@ -96,6 +97,10 @@ export class HomePage {
     } else {
       return cordova.file.dataDirectory + img;
     }
-}
+  }
+
+  goToCheckout(){
+    this.navCtrl.push(Checkout);
+  }
 
 }

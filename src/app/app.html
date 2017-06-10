@@ -57,17 +57,24 @@
 
   <ion-footer>
     <ion-list>
-      <button ion-button block clear (click)="goToLogin()">
+      <button ion-button block clear (click)="goToLogin()" *ngIf="!this.data.loggedIn">
         <ion-item no-padding text-uppercase>
           Login
           <ion-icon color="danger" ios="ios-log-in" md="md-log-in" item-right></ion-icon>
         </ion-item>
       </button>
 
-      <button ion-button block clear (click)="goToSignUp()">
+      <button ion-button block clear (click)="goToSignUp()" *ngIf="!this.data.loggedIn">
         <ion-item no-padding text-uppercase>
           Sign Up
           <ion-icon color="danger" ios="ios-people" md="md-people" item-right></ion-icon>
+        </ion-item>
+      </button>
+
+      <button ion-button block clear (click)="logout()" *ngIf="this.data.loggedIn">
+        <ion-item no-padding text-uppercase>
+          Logout
+          <ion-icon color="danger" ios="ios-log-out" md="md-log-out" item-right></ion-icon>
         </ion-item>
       </button>
 
@@ -78,7 +85,7 @@
         </ion-item>
       </button>-->
 
-      <button ion-button block clear>
+      <button ion-button block clear (click)="goToAbout()">
         <ion-item no-padding text-uppercase>
           About Us
           <ion-icon color="danger" ios="ios-information-circle" md="md-information-circle" item-right></ion-icon>

@@ -6,14 +6,6 @@ import 'rxjs/add/operator/map';
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 import { File } from '@ionic-native/file';
 
-
-/*
-  Generated class for the Data provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
-
 @Injectable()
 export class Data {
   api: string = 'http://127.0.0.1:8000/api/v1/';

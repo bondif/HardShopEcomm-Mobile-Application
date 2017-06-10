@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 import { SignUp } from '../sign-up/sign-up';
+import { HomePage } from '../home/home';
 
 import { Data } from '../../providers/data';
 
@@ -36,7 +37,9 @@ export class Login {
     this.data.postLogin(this.login.value)
       .then(ansewer =>{
          console.log(ansewer);
+         this.data.loggedIn = true;
         loading.dismiss();
+        this.navCtrl.push(HomePage);
       }
       );
   }

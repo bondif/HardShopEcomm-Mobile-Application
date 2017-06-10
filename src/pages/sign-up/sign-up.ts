@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 
+import { HomePage } from '../home/home';
+
 import { Data } from '../../providers/data';
 
 @IonicPage()
@@ -37,8 +39,10 @@ export class SignUp {
     loading.present();
     this.data.postSignUp(this.signUp.value)
       .then(data => {
-        console.log(data);
+        this.data.loggedIn = true;
+        //this.data.token = data.token
         loading.dismiss();
+        this.navCtrl.push(HomePage);
       });
   }
 
